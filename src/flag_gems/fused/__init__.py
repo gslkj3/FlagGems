@@ -11,6 +11,9 @@ from flag_gems.fused.FLA import (
 from flag_gems.fused.flash_mla import flash_mla
 from flag_gems.fused.flashmla_sparse import flash_mla_sparse_fwd
 from flag_gems.fused.fused_add_rms_norm import fused_add_rms_norm
+from flag_gems.fused.fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert import (
+    fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert,
+)
 from flag_gems.fused.fused_moe import (
     dispatch_fused_moe_kernel,
     fused_experts_impl,
@@ -23,6 +26,8 @@ from flag_gems.fused.gelu_and_mul import gelu_and_mul
 from flag_gems.fused.grouped_topk import grouped_topk
 from flag_gems.fused.instance_norm import instance_norm
 from flag_gems.fused.mhc import (
+    hc_head_fused_kernel,
+    hc_head_fused_kernel_ref,
     mhc_bwd,
     mhc_bwd_ref,
     mhc_post,
@@ -42,6 +47,10 @@ from flag_gems.fused.rotary_embedding import apply_rotary_pos_emb
 from flag_gems.fused.rwkv_ka_fusion import rwkv_ka_fusion
 from flag_gems.fused.rwkv_mm_sparsity import rwkv_mm_sparsity
 from flag_gems.fused.silu_and_mul import silu_and_mul, silu_and_mul_out
+from flag_gems.fused.silu_and_mul_with_clamp import (
+    silu_and_mul_with_clamp,
+    silu_and_mul_with_clamp_out,
+)
 from flag_gems.fused.skip_layernorm import skip_layer_norm
 from flag_gems.fused.sparse_attention import sparse_attn_triton
 from flag_gems.fused.swiglu import dswiglu, swiglu
@@ -64,11 +73,14 @@ __all__ = [
     "flash_mla",
     "flash_mla_sparse_fwd",
     "fused_add_rms_norm",
+    "fused_deepseek_v4_qnorm_rope_kv_rope_quant_insert",
     "fused_experts_impl",
     "fused_recurrent_gated_delta_rule_fwd",
     "geglu",
     "gelu_and_mul",
     "grouped_topk",
+    "hc_head_fused_kernel",
+    "hc_head_fused_kernel_ref",
     "inplace_fused_experts",
     "instance_norm",
     "invoke_fused_moe_triton_kernel",
@@ -88,6 +100,8 @@ __all__ = [
     "rwkv_mm_sparsity",
     "silu_and_mul",
     "silu_and_mul_out",
+    "silu_and_mul_with_clamp",
+    "silu_and_mul_with_clamp_out",
     "sinkhorn_forward",
     "skip_layer_norm",
     "swiglu",
